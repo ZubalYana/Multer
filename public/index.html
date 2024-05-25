@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Завантаження фото</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.js' integrity='sha512-vHNHepeQWwAggJlhEk932jRS5sNdn/Nn4F+w4TpXW5dA+04qnd3e7YpfXo6auWhFG6z3FVhmScG4ovtF+qYeZw==' crossorigin='anonymous'></script>
 </head>
 <body>
-    
+    <h1>Завантажити фото</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="photo" accept="image/*" required>
+        <button type="submit">Завантажити</button>
+    </form>
+    <a href="/gallery">Переглянути галерею</a>
 </body>
 </html>

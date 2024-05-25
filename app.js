@@ -25,6 +25,7 @@ const upload = multer({storage: storage})
 
 //Photo uploading way
 app.post('/upload', upload.single('photo'), async (req,res)=>{
+    console.log(req.file)
     const newPhoto = new Photo({
         data: req.file.buffer,
         contentType: req.file.mimetype,
@@ -55,7 +56,7 @@ app.get('/', (req, res)=>{
 
 //gallery way
 app.get('/gallery', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'gallery.html'))
+    res.sendFile(path.join(__dirname, 'public', 'gallery.html'))
 })
 
 app.listen(PORT, ()=>{
