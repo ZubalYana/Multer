@@ -40,7 +40,7 @@ app.post('/upload', upload.single('photo'), async (req,res)=>{
 })
 
 //getting all the photos
-app.post('/photos', async (req,res)=>{
+app.get('/photos', async (req,res)=>{
     try{
         const photos = await Photo.find();
         res.json(photos);

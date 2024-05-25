@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="gallery"></div>
 </body>
+
+<script>
+async function loadPhotos() {
+            const response = await fetch('/photos');
+            const photos = await response.json();
+            const gallery = document.getElementById('gallery');
+            photos.forEach(photo => {
+                const img = document.createElement('img');
+                img.src = `data:${photo.contentType};base64,${btoa(
+                    String.fromCharCode(...new Uint8Array(photo.data.data))
+                )}`;
+                img.alt = 'Зображення';
+                img.style.width = '200px';
+                img.style.height = '200px';
+                img.style.margin = '10px';
+                gallery.appendChild(img);
+            });
+        }
+
+        loadPhotos();
+</script>
 </html>
